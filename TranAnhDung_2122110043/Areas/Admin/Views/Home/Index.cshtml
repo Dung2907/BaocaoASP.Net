@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .card {
+            height: 100%;
+        }
+
+        .card-header {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .table th {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-primary h-100">
+                    <div class="card-header bg-primary text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Online Store Visitors 🛍️</h5>
+                            <a href="#" class="btn btn-sm btn-outline-light">View Report</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div>
+                                <h2 class="fw-bold mb-0">820</h2>
+                                <p class="text-muted">Visitors Over Time</p>
+                            </div>
+                            <div class="text-end">
+                                <p class="text-success mb-0">
+                                    <i class="fas fa-arrow-up me-1"></i>12.5%
+                                </p>
+                                <p class="text-muted">Since last week</p>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <canvas id="visitors-chart" height="200"></canvas>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <span class="me-3">
+                                <i class="fas fa-square text-primary"></i> This Week
+                            </span>
+                            <span>
+                                <i class="fas fa-square text-secondary"></i> Last Week
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-success h-100">
+                    <div class="card-header bg-success text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Sales 💰</h5>
+                            <a href="#" class="btn btn-sm btn-outline-light">View Report</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div>
+                                <h2 class="fw-bold mb-0">$18,230.00</h2>
+                                <p class="text-muted">Sales Over Time</p>
+                            </div>
+                            <div class="text-end">
+                                <p class="text-success mb-0">
+                                    <i class="fas fa-arrow-up me-1"></i>33.1%
+                                </p>
+                                <p class="text-muted">Since last month</p>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <canvas id="sales-chart" height="200"></canvas>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <span class="me-3">
+                                <i class="fas fa-square text-success"></i> This year
+                            </span>
+                            <span>
+                                <i class="fas fa-square text-secondary"></i> Last year
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card shadow-sm border-secondary">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Products 📦</h5>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary me-2">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Sales</th>
+                                        <th>More</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="/api/placeholder/32/32" alt="Product 1" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                            Some Product
+                                        </td>
+                                        <td>$13 USD</td>
+                                        <td>
+                                            <small class="text-success me-1">
+                                                <i class="fas fa-arrow-up"></i> 12%
+                                            </small>
+                                            12,000 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="/api/placeholder/32/32" alt="Product 2" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                            Another Product
+                                        </td>
+                                        <td>$29 USD</td>
+                                        <td>
+                                            <small class="text-warning me-1">
+                                                <i class="fas fa-arrow-down"></i> 0.5%
+                                            </small>
+                                            123,234 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="/api/placeholder/32/32" alt="Product 3" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                            Amazing Product
+                                        </td>
+                                        <td>$1,230 USD</td>
+                                        <td>
+                                            <small class="text-danger me-1">
+                                                <i class="fas fa-arrow-down"></i> 3%
+                                            </small>
+                                            198 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="/api/placeholder/32/32" alt="Product 4" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                            Perfect Item
+                                            <span class="badge bg-danger ms-2">NEW</span>
+                                        </td>
+                                        <td>$199 USD</td>
+                                        <td>
+                                            <small class="text-success me-1">
+                                                <i class="fas fa-arrow-up"></i> 63%
+                                            </small>
+                                            87 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-info h-100">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Online Store Overview 🌐</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                            <div class="text-success display-4">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="text-end">
+                                <p class="text-success mb-0 fw-bold">
+                                    <i class="fas fa-arrow-up me-1"></i> 12%
+                                </p>
+                                <p class="text-muted mb-0">CONVERSION RATE</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                            <div class="text-warning display-4">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="text-end">
+                                <p class="text-warning mb-0 fw-bold">
+                                    <i class="fas fa-arrow-up me-1"></i> 0.8%
+                                </p>
+                                <p class="text-muted mb-0">SALES RATE</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="text-danger display-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="text-end">
+                                <p class="text-danger mb-0 fw-bold">
+                                    <i class="fas fa-arrow-down me-1"></i> 1%
+                                </p>
+                                <p class="text-muted mb-0">REGISTRATION RATE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample data for charts
+        const visitorData = {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'This Week',
+                data: [400, 300, 520, 440, 480, 360, 320],
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Last Week',
+                data: [340, 320, 400, 380, 420, 300, 280],
+                backgroundColor: 'rgba(108, 117, 125, 0.5)',
+                borderColor: 'rgba(108, 117, 125, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const salesData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'This Year',
+                data: [4000, 3000, 5000, 4500, 4800, 3800],
+                backgroundColor: 'rgba(40, 167, 69, 0.5)',
+                borderColor: 'rgba(40, 167, 69, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Last Year',
+                data: [3000, 2800, 4200, 3800, 4300, 3500],
+                backgroundColor: 'rgba(108, 117, 125, 0.5)',
+                borderColor: 'rgba(108, 117, 125, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Create charts
+        new Chart(document.getElementById('visitors-chart'), {
+            type: 'bar',
+            data: visitorData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('sales-chart'), {
+            type: 'bar',
+            data: salesData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

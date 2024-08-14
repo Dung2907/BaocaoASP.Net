@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<TranAnhDung_2122110043.Context.Category>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Tất cả danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tất cả danh mục</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm("Index", "Category", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="input-group mb-3">
+            @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Tìm kiếm theo tên..." })
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().name)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().slug)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().description)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().created_at)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().updated_at)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().status)</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.name)</td>
+            <td>@Html.DisplayFor(modelItem => item.slug)</td>
+            <td>@Html.DisplayFor(modelItem => item.description)</td>
+            <td>@Html.DisplayFor(modelItem => item.created_at)</td>
+            <td>@Html.DisplayFor(modelItem => item.updated_at)</td>
+            <td>@Html.DisplayFor(modelItem => item.status)</td>
+            <td class="text-center">
+                <a href="@Url.Action("Edit", new { id = item.id })" class="btn btn-sm btn-primary" title="Edit">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="@Url.Action("Details", new { id = item.id })" class="btn btn-sm btn-info" title="Details">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+                <a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-sm btn-danger" title="Delete">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="text-center">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter }))
+</div>

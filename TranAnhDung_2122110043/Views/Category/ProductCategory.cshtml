@@ -1,0 +1,33 @@
+﻿@model List<TranAnhDung_2122110043.Context.Product>
+@{
+    ViewBag.Title = "ProductCategory";
+}
+
+<h2>ProductCategory</h2>
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <nav class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div class="card card-sm card-product-grid">
+                        <a href="@Url.Action("Detail", "Product", new { id = item.id })" class="img-wrap">
+                            <img src="~/Content/images/product/@item.image" alt="@item.name">
+                        </a>
+                        <figcaption class="info-wrap">
+                            <a href="@Url.Action("Detail", "Product", new { id = item.id })" class="title">@item.name</a>
+                            <div class="price mt-1">@item.price VND</div>
+                        </figcaption>
+                    </div>
+                </div>
+            }
+
+
+        </nav> <!-- row.// -->
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

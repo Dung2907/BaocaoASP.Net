@@ -1,0 +1,81 @@
+﻿@model TranAnhDung_2122110043.Context.Brand
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Brand Details</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-borderless">
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.name):</th>
+                        <td>@Html.DisplayFor(model => model.name)</td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.slug):</th>
+                        <td>@Html.DisplayFor(model => model.slug)</td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.image):</th>
+                        <td>
+                            @if (!string.IsNullOrEmpty(Model.image))
+                            {
+                                <img src="@Url.Content(Model.image)" alt="@Model.name" class="img-thumbnail" style="max-width: 100px;" />
+                            }
+                            else
+                            {
+                                <span>No image available</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.status):</th>
+                        <td>
+                            @if (Model.status == 1)
+                            {
+                                <span class="badge badge-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Inactive</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-borderless">
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.description):</th>
+                        <td>@Html.DisplayFor(model => model.description)</td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.created_at):</th>
+                        <td>@Html.DisplayFor(model => model.created_at)</td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">@Html.DisplayNameFor(model => model.updated_at):</th>
+                        <td>@Html.DisplayFor(model => model.updated_at)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="@Url.Action("Edit", new { id = Model.id })" class="btn btn-primary">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">
+            <i class="fas fa-list"></i> Back to List
+        </a>
+    </div>
+</div>
+

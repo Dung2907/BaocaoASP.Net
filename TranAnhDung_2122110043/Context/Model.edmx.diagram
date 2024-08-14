@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f0c14e5f5e64b189943275e51bce2be" Name="Diagram1">
+        <EntityTypeShape EntityType="WebsiteAspModel.Brand" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.Category" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.Order" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebsiteAspModel.User" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="WebsiteAspModel.FK__Product__brand_i__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="WebsiteAspModel.FK__Product__categor__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="WebsiteAspModel.FK__Order__user_id__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="WebsiteAspModel.FK__OrderDeta__order__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="WebsiteAspModel.FK__OrderDeta__produ__01142BA1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

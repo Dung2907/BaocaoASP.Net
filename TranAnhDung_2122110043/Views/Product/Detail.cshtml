@@ -1,0 +1,152 @@
+﻿@model TranAnhDung_2122110043.Context.Product
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#addtocart").click(function () {
+            var model = {
+                Id: @Model.id,
+                Quantity: $("#ipQuantity").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: model,
+                dataType: "json",
+                success: function (response) {
+                    alert(response.Message);
+                    $('#CartCount').text(response.CartCount);
+                },
+                error: function () {
+                    alert("Lỗi trong khi thêm vào giỏ hàng!");
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<!-- Rest of the HTML remains the same -->
+
+<section class="section-content bg-white padding-y">
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-6">
+                <div class="card">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <div> <a href="#"><img src="~/Content/images/product/@Model.image"></a></div>
+                        </div>
+                        <!-- Thumbnail images -->
+                    </article>
+                </div>
+            </aside>
+            <main class="col-md-6">
+                <article class="product-info-aside">
+                    <h2 class="title mt-3">@Model.name</h2>
+                    <!-- Rating and price information -->
+                    <div class="mb-3">
+                        <var class="price h4">@Model.price VND</var>
+                        @*<span class="text-muted">USD @(Model.price * 1.2) incl. VAT</span>*@
+                    </div>
+                    <p>@Model.specs</p>
+                    <!-- Product details -->
+                    <div class="form-row mt-4">
+                        <div class="form-group col-md flex-grow-0">
+                            <div class="input-group mb-3 input-spinner">
+                                <input type="number" id="ipQuantity" class="form-control" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="form-group col-md">
+                            <a href="#" id="addtocart" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="text">Thêm vào giỏ hàng</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+</section>
+<!-- Rest of the HTML remains the same -->
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name padding-y bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="title-description">Description</h5>
+                @Model.description
+            </div> <!-- col.// -->
+
+            <aside class="col-md-4">
+                <div class="box">
+
+                    <h5 class="title-description">Files</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <h5 class="title-description">Videos</h5>
+
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/2.jpg"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">How to use this item</a></h6>
+                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                        </div>
+                    </article>
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/2.jpg"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
+                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                        </div>
+                    </article>
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/1.jpg"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
+                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                        </div>
+                    </article>
+
+
+                </div> <!-- box.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+<section class="padding-y-lg bg-light border-top">
+    <div class="container">
+        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-4 col-sm-6">
+                <form class="form-row">
+                    <div class="col-8">
+                        <input class="form-control" placeholder="Your Email" type="email">
+                    </div> <!-- col.// -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
+                    </div> <!-- col.// -->
+                </form>
+                <small class="form-text">We’ll never share your email address with a third-party. </small>
+            </div> <!-- col-md-6.// -->
+        </div>
+
+    </div>
+</section>
+<!-- ========================= SECTION SUBSCRIBE END// ========================= -->
