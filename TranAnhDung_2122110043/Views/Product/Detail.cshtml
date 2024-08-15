@@ -121,12 +121,31 @@
                             <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
                         </div>
                     </article>
-
-
                 </div> <!-- box.// -->
             </aside> <!-- col.// -->
         </div> <!-- row.// -->
     </div> <!-- container .//  -->
+    <section class="section-name padding-y bg">
+        <div class="container">
+            <h5 class="title-description">Sản phẩm liên quan </h5>
+            <div class="row">
+                @foreach (var product in ViewBag.RelatedProducts)
+                {
+                    <div class="col-md-3">
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+                                <img src="~/Content/images/product/@product.image" alt="@product.name">
+                            </div>
+                            <figcaption class="info-wrap">
+                                <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="title">@product.name</a>
+                                <div class="price mt-1">@product.price VND</div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 <!-- ========================= SECTION SUBSCRIBE  ========================= -->
@@ -146,7 +165,7 @@
                 <small class="form-text">We’ll never share your email address with a third-party. </small>
             </div> <!-- col-md-6.// -->
         </div>
-
+       
     </div>
 </section>
 <!-- ========================= SECTION SUBSCRIBE END// ========================= -->

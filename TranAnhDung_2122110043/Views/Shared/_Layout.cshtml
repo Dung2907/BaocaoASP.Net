@@ -38,24 +38,17 @@
                         </a> <!-- brand-wrap.// -->
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-6">
-                        <form action="#" class="search-header">
+                        <form action="@Url.Action("Index", "Product")" method="get" class="form-inline my-2 my-lg-0">
                             <div class="input-group w-100">
-                                <select class="custom-select border-right" name="category_name">
-                                    <option value="">All type</option>
-                                    <option value="codex">Special</option>
-                                    <option value="comments">Only best</option>
-                                    <option value="content">Latest</option>
-                                </select>
-                                <input type="text" class="form-control" placeholder="Search">
-
+                                <input class="form-control" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search" name="searchString">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
-                                        <i class="fa fa-search"></i> Search
+                                        <i class="fa fa-search"></i> Tìm kiếm
                                     </button>
                                 </div>
                             </div>
-                        </form> <!-- search-wrap .end// -->
-                    </div> <!-- col.// -->
+                        </form>
+                    </div><!-- col.// -->
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="widgets-wrap float-md-right">
                             <div class="widget-header mr-3">
@@ -92,7 +85,7 @@
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="notify" id="CartCount">@(Session["count"] ?? 0)</span>
                                 </div>
-                                <small class="text">Cart</small>
+                                <small class="text">Giỏ hàng</small>
                             </a>
                         </div>
                     </div> <!-- widgets-wrap.// -->
@@ -112,42 +105,42 @@
                 <div class="collapse navbar-collapse" id="main_nav">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Categories </a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Danh mục </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Machinery</a>
-                                <a class="dropdown-item" href="#">Electronics</a>
-                                <a class="dropdown-item" href="#">Home textile</a>
-                                <a class="dropdown-item" href="#">Home and kitchen</a>
-                                <a class="dropdown-item" href="#">Service and equipment</a>
-                                <a class="dropdown-item" href="#">Healthcare items</a>
-                                <a class="dropdown-item" href="#">Toys and Hobbies</a>
+                                <a class="dropdown-item" href="#">Máy móc</a>
+                                <a class="dropdown-item" href="#">Đồ điện tử</a>
+                                <a class="dropdown-item" href="#">Đồ gia dụng</a>
+                                <a class="dropdown-item" href="#">Đồ gia dụng và nhà bếp</a>
+                                <a class="dropdown-item" href="#">Dịch vụ và thiết bị</a>
+                                <a class="dropdown-item" href="#">Các mặt hàng chăm sóc sức khỏe</a>
+                                <a class="dropdown-item" href="#">Đồ chơi và sở thích</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ready to ship</a>
+                            <a class="nav-link" href="#">Sẵn sàng để giao hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trade shows</a>
+                            <a class="nav-link" href="#">Triển lãm thương mại</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="#">Dịch vụ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sell with us</a>
+                            <a class="nav-link" href="#">Bán với chúng tôi</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Demo pages</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Trang demo</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="page-index.html">Main</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Category")">All category</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Product")">Listing list</a>
-                                <a class="dropdown-item" href="@Url.Action("Pagelistinglarge", "Product")">Listing grid</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", " Cart")">Shopping cart</a>
-                                <a class="dropdown-item" href="page-detail-product.html">Item detail</a>
-                                <a class="dropdown-item" href="page-content.html">Info content</a>
-                                <a class="dropdown-item" href="@Url.Action("Login", "User")">Page login</a>
-                                <a class="dropdown-item" href="@Url.Action("Register", "User")">Page register</a>
-                                <a class="dropdown-item disabled text-muted" href="#">More components</a>
+                                <a class="dropdown-item" href="page-index.html">Chính</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Category")">Tất cả danh mục</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Product")">Danh sách sản phẩm</a>
+                                <a class="dropdown-item" href="@Url.Action("Pagelistinglarge", "Product")">Lưới danh sách</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", " Cart")">Giỏ hàng</a>
+                                <a class="dropdown-item" href="page-detail-product.html">Mục chi tiết</a>
+                                <a class="dropdown-item" href="page-content.html">Nội dung thông tin</a>
+                                <a class="dropdown-item" href="@Url.Action("Login", "User")">Đăng nhập trang</a>
+                                <a class="dropdown-item" href="@Url.Action("Register", "User")">Đăng ký trang</a>
+                                <a class="dropdown-item disabled text-muted" href="#">Nhiều thành phần hơn</a>
                             </div>
                         </li>
                     </ul>
@@ -179,7 +172,7 @@
             <section class="footer-top padding-y-lg text-white">
                 <div class="row">
                     <aside class="col-md col-6">
-                        <h6 class="title">Brands</h6>
+                        <h6 class="title">Thương hiệu</h6>
                         <ul class="list-unstyled">
                             <li> <a href="#">Adidas</a></li>
                             <li> <a href="#">Puma</a></li>
@@ -188,36 +181,36 @@
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Company</h6>
+                        <h6 class="title">Công ty</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#">About us</a></li>
-                            <li> <a href="#">Career</a></li>
-                            <li> <a href="#">Find a store</a></li>
-                            <li> <a href="#">Rules and terms</a></li>
-                            <li> <a href="#">Sitemap</a></li>
+                            <li> <a href="#">Về chúng tôi</a></li>
+                            <li> <a href="#">Sự nghiệp</a></li>
+                            <li> <a href="#">Tìm cửa hàng</a></li>
+                            <li> <a href="#">Quy tắc và điều khoản</a></li>
+                            <li> <a href="#">Sơ đồ trang web</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Help</h6>
+                        <h6 class="title">Trợ giúp</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#">Contact us</a></li>
-                            <li> <a href="#">Money refund</a></li>
-                            <li> <a href="#">Order status</a></li>
-                            <li> <a href="#">Shipping info</a></li>
-                            <li> <a href="#">Open dispute</a></li>
+                            <li> <a href="#">Liên hệ với chúng tôi</a></li>
+                            <li> <a href="#">Hoàn tiền</a></li>
+                            <li> <a href="#">Trạng thái đơn hàng</a></li>
+                            <li> <a href="#">Thông tin giao hàng</a></li>
+                            <li> <a href="#">Mở tranh chấp</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
-                        <h6 class="title">Account</h6>
+                        <h6 class="title">Tài khoản</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#"> User Login </a></li>
-                            <li> <a href="#"> User register </a></li>
-                            <li> <a href="#"> Account Setting </a></li>
-                            <li> <a href="#"> My Orders </a></li>
+                            <li> <a href="#"> Đăng nhập người dùng </a></li>
+                            <li> <a href="#"> Đăng ký người dùng </a></li>
+                            <li> <a href="#"> Thiết lập tài khoản </a></li>
+                            <li> <a href="#"> Đơn hàng của tôi </a></li>
                         </ul>
                     </aside>
                     <aside class="col-md">
-                        <h6 class="title">Social</h6>
+                        <h6 class="title">Mạng xã hội</h6>
                         <ul class="list-unstyled">
                             <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
                             <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
@@ -225,7 +218,7 @@
                             <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
                         </ul>
                     </aside>
-                </div> <!-- row.// -->
+                </div><!-- row.// -->
             </section>	<!-- footer-top.// -->
 
             <section class="footer-bottom text-center">

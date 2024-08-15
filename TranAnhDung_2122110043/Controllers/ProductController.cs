@@ -56,6 +56,15 @@ namespace TranAnhDung_2122110043.Controllers
                 {
                     return HttpNotFound();
                 }
+
+                // Get related products (same category, excluding the current product)
+                var relatedProducts = objWebsiteAspEntities5.Products
+                    .Where(p => p.category_id == item.category_id && p.id != id)
+                    .Take(4)
+                    .ToList();
+
+                ViewBag.RelatedProducts = relatedProducts;
+
                 return View(item);
             }
         }

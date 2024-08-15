@@ -44,7 +44,7 @@
 
                     <div class="row">
                         <aside class="col-lg col-md-3 flex-lg-grow-0">
-                            <h6><a href="@Url.Action("Index", "Category")">DANH MUC</a></h6>
+                            <h6><a href="@Url.Action("Index", "Category")">DANH MỤC</a></h6>
                             <nav class="nav-home-aside">
                                 <ul class="menu-category">
                                     @foreach (var item in Model.ListCategory.Take(8))
@@ -92,13 +92,13 @@
                         </div> <!-- col.// -->
                         <div class="col-md d-none d-lg-block flex-grow-1">
                             <aside class="special-home-right">
-                                <h6 class="bg-blue text-center mb-0 p-2" " ><a class="text-white" href="@Url.Action("Index", "Brand")">Popular brand</a></h6>
+                                <h6 class="bg-blue text-center mb-0 p-2" " ><a class="text-white" href="@Url.Action("Index", "Brand")">Thương hiệu phổ biến</a></h6>
                                 @foreach (var brand in Model.ListBrand.Take(3))
                                 {
                                     <div class="card-banner border-bottom">
                                         <div class="py-3" style="width:80%">
                                             <h6 class="card-title">@Html.ActionLink(@brand.name, "ProductBrand", "Brand", new { @id = brand.id }, null)</h6>
-                                            <a href="@Url.Action("Detail", "Product", new { id = brand.id })" class="btn btn-secondary btn-sm"> Source now </a>
+                                            <a href="@Url.Action("Detail", "Product", new { id = brand.id })" class="btn btn-secondary btn-sm">Truy cập </a>
                                         </div>
                                         <img src="~/Content/images/brand/@brand.image" height="80" class="img-bg">
                                     </div>
@@ -118,14 +118,14 @@
             <div class="card card-deal">
                 <div class="col-heading content-body">
                     <header class="section-heading">
-                        <h3 class="section-title">Deals and offers</h3>
-                        <p>Hygiene equipments</p>
+                        <h3 class="section-title">Ưu đãi và khuyến mại</h3>
+                      
                     </header><!-- sect-heading -->
                     <div class="timer">
-                        <div> <span class="num" id="days">04</span> <small>Days</small></div>
-                        <div> <span class="num" id="hours">12</span> <small>Hours</small></div>
-                        <div> <span class="num" id="mins">58</span> <small>Min</small></div>
-                        <div> <span class="num" id="secs">02</span> <small>Sec</small></div>
+                        <div> <span class="num" id="days">04</span> <small>Ngày</small></div>
+                        <div> <span class="num" id="hours">12</span> <small>Giờ</small></div>
+                        <div> <span class="num" id="mins">58</span> <small>Phút</small></div>
+                        <div> <span class="num" id="secs">02</span> <small>Giây</small></div>
                     </div>
                 </div> <!-- col.// -->
                 <div class="row no-gutters items-wrap">
@@ -166,9 +166,9 @@
                 <div class="row no-gutters">
                     <div class="col-md-3">
                         <div class="home-category-banner bg-light-orange">
-                            <h5 class="title">Browse our categories</h5>
-                            <p>Discover a wide range of products across various categories.</p>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">Explore all</a>
+                            <h5 class="title">Duyệt qua các danh mục của chúng tôi</h5>
+                            <p>Khám phá nhiều loại sản phẩm trong nhiều danh mục khác nhau.</p>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Khám phá tất cả</a>
                             <img src="~/Content/images/items/2.jpg" class="img-bg">
                         </div>
                     </div>
@@ -209,8 +209,7 @@
                     <div class="col-md-3">
 
                         <div class="home-category-banner bg-light-orange">
-                            <h5 class="title">Machinery items for manufacturers</h5>
-                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                            <h5 class="title">Các mặt hàng máy móc dành cho nhà sản xuất</h5> <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labe et dolore magna aliqua. </p>
                             <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
                             <img src="~/Content/images/items/14.jpg" class="img-bg">
                         </div>
@@ -243,17 +242,16 @@
         <section class="padding-bottom">
 
             <header class="section-heading heading-line">
-                <h4 class="title-section text-uppercase">Request for Quotation</h4>
+                <h4 class="title-section text-uppercase">Yêu cầu báo giá</h4>
             </header>
 
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-banner banner-quote overlay-gradient" style="background-image: url('~/Content/images/banners/banner9.jpg');">
                         <div class="card-img-overlay white">
-                            <h3 class="card-title">An easy way to send request to suppliers</h3>
+                            <h3 class="card-title">Một cách dễ dàng để gửi yêu cầu tới nhà cung cấp</h3> 
                             <p class="card-text" style="max-width: 400px">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit , sed do eiusmod tạm thời xảy ra.
                             </p>
                             <a href="" class="btn btn-primary rounded-pill">Learn more</a>
                         </div>
@@ -262,20 +260,20 @@
                 <div class="col-md-4">
 
                     <div class="card card-body">
-                        <h4 class="title py-3">One Request, Multiple Quotes</h4>
+                        <h4 class="title py-3">Một yêu cầu, nhiều trích dẫn</h4>
                         <form>
                             <div class="form-group">
-                                <input class="form-control" name="" placeholder="What are you looking for?" type="text">
+                                <input class="form-control" name="" placeholder="Bạn đang tìm kiếm gì?" type="text">
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input class="form-control" placeholder="Quantity" name="" type="text">
+                                    <input class="form-control" placeholder="Số lượng" name="" type="text">
 
                                     <select class="custom-select form-control">
-                                        <option>Pieces</option>
-                                        <option>Litres</option>
-                                        <option>Tons</option>
-                                        <option>Gramms</option>
+                                        <option>Miếng</option>
+                                        <option>Lít</option>
+                                        <option>Tấn</option>
+                                        <option>Gam</option>
                                     </select>
                                 </div>
                             </div>
@@ -305,7 +303,7 @@
         <section class="padding-bottom-sm">
 
             <header class="section-heading heading-line">
-                <h4 class="title-section text-uppercase">Recommended items</h4>
+                <h4 class="title-section text-uppercase">Các mặt hàng được đề xuất</h4>
             </header>
 
             <div class="row row-sm">
@@ -333,7 +331,7 @@
         <section class="padding-bottom">
 
             <header class="section-heading heading-line">
-                <h4 class="title-section text-uppercase">Trade services</h4>
+                <h4 class="title-section text-uppercase">Dịch vụ thương mại</h4>
             </header>
 
             <div class="row">
@@ -341,8 +339,8 @@
                     <article class="card card-post">
                         <img src="~/Content/images/posts/1.jpg" class="card-img-top">
                         <div class="card-body">
-                            <h6 class="title">Trade Assurance</h6>
-                            <p class="small text-uppercase text-muted">Order protection</p>
+                            <h6 class="title">Bảo đảm giao dịch</h6>
+                            <p class="small text-uppercase text-muted">Bảo vệ đơn hàng</p>
                         </div>
                     </article> <!-- card.// -->
                 </div> <!-- col.// -->
@@ -350,8 +348,8 @@
                     <article class="card card-post">
                         <img src="~/Content/images/posts/2.jpg" class="card-img-top">
                         <div class="card-body">
-                            <h6 class="title">Pay anytime</h6>
-                            <p class="small text-uppercase text-muted">Finance solution</p>
+                            <h6 class="title">Thanh toán bất cứ lúc nào</h6>
+                            <p class="small text-uppercase text-muted">Giải pháp tài chính</p>
                         </div>
                     </article> <!-- card.// -->
                 </div> <!-- col.// -->
@@ -359,8 +357,8 @@
                     <article class="card card-post">
                         <img src="~/Content/images/posts/3.jpg" class="card-img-top">
                         <div class="card-body">
-                            <h6 class="title">Inspection solution</h6>
-                            <p class="small text-uppercase text-muted">Easy Inspection</p>
+                            <h6 class="title">Giải pháp kiểm tra</h6>
+                            <p class="small text-uppercase text-muted">Kiểm tra dễ dàng</p>
                         </div>
                     </article> <!-- card.// -->
                 </div> <!-- col.// -->
@@ -368,8 +366,8 @@
                     <article class="card card-post">
                         <img src="~/Content/images/posts/4.jpg" class="card-img-top">
                         <div class="card-body">
-                            <h6 class="title">Ocean and Air Shipping</h6>
-                            <p class="small text-uppercase text-muted">Logistic services</p>
+                            <h6 class="title">Vận chuyển đường biển và đường hàng không</h6>
+                            <p class="small text-uppercase text-muted">Dịch vụ hậu cần</p>
                         </div>
                     </article> <!-- card.// -->
                 </div> <!-- col.// -->
@@ -381,7 +379,7 @@
         <section class="padding-bottom">
 
             <header class="section-heading heading-line">
-                <h4 class="title-section text-uppercase">Choose region</h4>
+                <h4 class="title-section text-uppercase">Chọn khu vực</h4>
             </header>
 
             <ul class="row mt-4">
@@ -407,7 +405,7 @@
     <section class="section-subscribe padding-y-lg">
         <div class="container">
 
-            <p class="pb-2 text-center text-white">Delivering the latest product trends and industry news straight to your inbox</p>
+            <p class="pb-2 text-center text-white">Gửi xu hướng sản phẩm mới nhất và tin tức ngành trực tiếp đến hộp thư đến của bạn</p>
 
             <div class="row justify-content-md-center">
                 <div class="col-lg-5 col-md-6">
@@ -416,10 +414,10 @@
                             <input class="form-control border-0" placeholder="Your Email" type="email">
                         </div> <!-- col.// -->
                         <div class="col-md-4 col-5">
-                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
+                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Đặt mua </button>
                         </div> <!-- col.// -->
                     </form>
-                    <small class="form-text text-white-50">We’ll never share your email address with a third-party. </small>
+                    <small class="form-text text-white-50">Chúng tôi sẽ không bao giờ chia sẻ địa chỉ email của bạn với bên thứ ba. </small>
                 </div> <!-- col-md-6.// -->
             </div>
 

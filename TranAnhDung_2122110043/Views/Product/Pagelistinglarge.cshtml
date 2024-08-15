@@ -44,21 +44,6 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
     <div class="container">
-
-
-        <!-- ============================  FILTER TOP  ================================= -->
-        <div class="card mb-3">
-            <div class="card-body">
-                <ol class="breadcrumb float-left">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Category name</a></li>
-                    <li class="breadcrumb-item active">Item details</li>
-                </ol>
-            </div> <!-- card-body .// -->
-        </div> <!-- card.// -->
-        <!-- ============================ FILTER TOP END.// ================================= -->
-
-
         <div class="row">
             <aside class="col-md-2">
 
@@ -231,7 +216,7 @@
                         <div class="row no-gutters">
                             <aside class="col-md-3">
                                 <a href="#" class="img-wrap">
-                                    <span class="badge badge-danger"> NEW </span>
+                                    <span class="badge badge-danger"> MỚI </span>
                                     <img src="~/Content/images/product/@item.image">
                                 </a>
                             </aside> <!-- col.// -->
@@ -247,7 +232,8 @@
                                             </li>
                                             <li>
                                                 <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </li>
                                         </ul>
@@ -255,14 +241,14 @@
                                     </div> <!-- rating-wrap.// -->
 
                                     <p class="mb-3">
-                                        <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                        <span class="tag"> 5 Years </span>
-                                        <span class="tag"> 80 reviews </span>
-                                        <span class="tag"> Russia </span>
+                                        <span class="tag"> <i class="fa fa-check"></i> Đã xác minh</span>
+                                        <span class="tag"> 5 năm </span>
+                                        <span class="tag"> 80 đánh giá </span>
+                                        <span class="tag"> Nga </span>
                                     </p>
 
                                     <p>
-                                       @item.description
+                                        @item.description
                                     </p>
 
                                 </div> <!-- info-main.// -->
@@ -271,63 +257,61 @@
                                 <div class="info-aside">
                                     <div class="price-wrap">
                                         <span class="h5 price">@item.price VND</span>
-                                        <small class="text-muted">/per item</small>
+                                        <small class="text-muted">/mỗi mặt hàng</small>
                                     </div> <!-- price-wrap.// -->
-                                    <small class="text-warning">Paid shipping</small>
+                                    <small class="text-warning">Đã thanh toán phí vận chuyển</small>
 
                                     <p class="text-muted mt-3">Grand textile Co</p>
                                     <p class="mt-3">
-                                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                        <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
+                                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+                                        <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Lưu </a>
                                     </p>
 
                                     <label class="custom-control mt-3 custom-checkbox">
                                         <input type="checkbox" class="custom-control-input">
                                         <div class="custom-control-label">
-                                            Add to compare
+                                            Thêm vào để so sánh
                                         </div>
                                     </label>
                                     <button class="btn btn-primary btn-block mt-2 add-to-cart" data-id="@item.id">
-                                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
                                     </button>
                                 </div> <!-- info-aside.// -->
                             </aside> <!-- col.// -->
                         </div> <!-- row.// -->
                     </article> <!-- card-product .// -->
 
-
-
                 }
 
-                    <nav class="mb-4" aria-label="Page navigation sample" style="text-align: center;">
-                        <ul class="pagination" style="display: flex; justify-content: center; list-style: none; padding: 0;">
-                            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-                                <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = Model.PageNumber - 1, searchString = Request.QueryString["searchString"] })">Previous</a>
+                <nav class="mb-4" aria-label="Page navigation sample" style="text-align: center;">
+                    <ul class="pagination" style="display: flex; justify-content: center; list-style: none; padding: 0;">
+                        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                            <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = Model.PageNumber - 1, searchString = Request.QueryString["searchString"] })">Previous</a>
+                        </li>
+
+                        @for (int i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                                <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = i, searchString = Request.QueryString["searchString"] })">@i</a>
                             </li>
+                        }
 
-                            @for (int i = 1; i <= Model.PageCount; i++)
-                            {
-                                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
-                                    <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = i, searchString = Request.QueryString["searchString"] })">@i</a>
-                                </li>
-                            }
-
-                            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-                                <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = Model.PageNumber + 1, searchString = Request.QueryString["searchString"] })">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                            <a class="page-link" href="@Url.Action("Pagelistinglarge", new { page = Model.PageNumber + 1, searchString = Request.QueryString["searchString"] })">Next</a>
+                        </li>
+                    </ul>
+                </nav>
 
 
 
-                    <div class="box text-center">
-                        <p>Did you find what you were looking for？</p>
-                        <a href="" class="btn btn-light">Yes</a>
-                        <a href="" class="btn btn-light">No</a>
-                    </div>
+                <div class="box text-center">
+                    <p>Did you find what you were looking for？</p>
+                    <a href="" class="btn btn-light">Yes</a>
+                    <a href="" class="btn btn-light">No</a>
+                </div>
 
 
-                </main> <!-- col.// -->
+            </main> <!-- col.// -->
 
         </div>
 
